@@ -3,20 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TraveLight</title>
+    <title>TraveLight - Your AI Travel Agent</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <!-- Header content goes here -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">✈️ TraveLight</div>
+            <nav class="nav-menu">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#cta">Get Started</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <!-- Main content goes here -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Your AI Travel Agent Awaits</h1>
+                <p>Discover the world with personalized travel recommendations powered by artificial intelligence</p>
+                <button class="cta-button">Plan Your Journey</button>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">🌍</div>
+                <div class="floating-card">🗺️</div>
+                <div class="floating-card">🎒</div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2>Why Choose TraveLight?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Powered</h3>
+                    <p>Advanced AI algorithms understand your preferences and travel style</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Get personalized itineraries in seconds, not hours</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart Suggestions</h3>
+                    <p>Intelligent recommendations based on your interests and budget</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Deals</h3>
+                    <p>Find the most affordable travel options tailored for you</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance for all your travel needs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access your travel plans anytime, anywhere</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Us Your Preferences</h3>
+                    <p>Share your travel style, budget, and interests with our AI</p>
+                </div>
+                <div class="step-divider">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Creates Itinerary</h3>
+                    <p>Our AI generates a custom travel plan just for you</p>
+                </div>
+                <div class="step-divider">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Explore & Customize</h3>
+                    <p>Refine your itinerary and make adjustments as needed</p>
+                </div>
+                <div class="step-divider">→</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Book & Travel</h3>
+                    <p>Book directly through our partners and start your adventure</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chatbot Section -->
+        <section id="chatbot" class="chatbot-section">
+            <div class="chatbot-container">
+                <h2>Chat with TraveLight AI</h2>
+                <p>Ask our AI travel agent anything about your next adventure</p>
+                
+                <div class="chat-interface">
+                    <div class="chat-header">
+                        <div class="chat-title">
+                            <span class="chat-icon">🤖</span>
+                            <span>TraveLight AI Agent</span>
+                        </div>
+                        <span class="chat-status">Online</span>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <p>Hello! I'm TraveLight, your AI travel agent. How can I help you plan your journey today?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            class="chat-input" 
+                            placeholder="Ask me about destinations, budgets, activities..."
+                            autocomplete="off"
+                        />
+                        <button id="chatSend" class="chat-send-btn">Send</button>
+                    </div>
+                </div>
+                
+                <div class="n8n-embed-container" id="n8nContainer">
+                    <!-- N8N chatbot will be embedded here -->
+                    <!-- Paste your N8N embed code or iframe here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="cta-section">
+            <h2>Ready to Explore?</h2>
+            <p>Let TraveLight be your guide to unforgettable journeys</p>
+            <button class="cta-button large">Start Planning Now</button>
+        </section>
     </main>
 
     <footer>
-        <!-- Footer content goes here -->
+        <div class="footer-content">
+            <p>&copy; 2024 TraveLight - Your AI Travel Agent. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
