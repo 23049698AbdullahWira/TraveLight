@@ -657,3 +657,9 @@ footer {
   text-align: left !important;
   white-space: pre-wrap;
 }
+
+.logo-img {
+  height: 50px;      /* adjust if too big/small */
+  width: auto;
+  display: block;
+}
