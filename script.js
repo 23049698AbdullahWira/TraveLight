@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupScrollAnimations();
     setupRippleEffect();
     setupChatbot();
+    setupNavbarColorChange();
 });
 
 // Initialize function
@@ -193,4 +194,31 @@ function setupChatbot() {
     console.log('1. Replace the chat interface with an N8N embed/iframe');
     console.log('2. Add your N8N webhook URL to the n8nContainer div');
     console.log('3. Or embed the N8N chat widget directly in the chatbot section');
+}
+
+// Setup Navbar Color Change based on scroll position
+function setupNavbarColorChange() {
+    const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('.hero');
+    
+    function updateNavbarColor() {
+        if (!heroSection) return;
+        
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrollPosition = window.scrollY + navbar.offsetHeight;
+        
+        // If we're past the hero section (which has light blue background)
+        // Switch to dark mode for better visibility on light backgrounds
+        if (scrollPosition > heroBottom) {
+            navbar.classList.add('dark-mode');
+        } else {
+            navbar.classList.remove('dark-mode');
+        }
+    }
+    
+    // Check on scroll
+    window.addEventListener('scroll', updateNavbarColor);
+    
+    // Check on load
+    updateNavbarColor();
 }

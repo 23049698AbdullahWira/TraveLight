@@ -12,16 +12,23 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
+    padding-top: 0;
+    margin: 0;
 }
 
 /* Navbar Header */
 .navbar {
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 1rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -38,6 +45,7 @@ body {
     font-weight: bold;
     color: white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .nav-menu {
@@ -49,20 +57,47 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 .nav-menu a:hover {
     transform: translateY(-2px);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
+/* Dark mode for navbar when scrolled */
+.navbar.dark-mode .logo,
+.navbar.dark-mode .nav-menu a {
+    color: #333;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.navbar.dark-mode {
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 40%, #FFA500 100%);
+    background: linear-gradient(135deg, #4A90E2 0%, #67B5E8 40%, #87CEEB 100%);
     color: white;
-    padding: 6rem 2rem;
+    padding: 8rem 2rem 6rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -71,6 +106,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    margin-top: 0;
 }
 
 .hero::before {
@@ -80,7 +116,7 @@ body {
     right: -10%;
     width: 500px;
     height: 500px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
 }
@@ -92,9 +128,59 @@ body {
     left: -5%;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite reverse;
+}
+
+/* Animated Clouds */
+.cloud {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.7;
+    z-index: 1;
+    animation: driftCloud linear infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.cloud-1 {
+    top: 10%;
+    left: -10%;
+    animation-duration: 25s;
+    font-size: 4rem;
+}
+
+.cloud-2 {
+    top: 30%;
+    left: -15%;
+    animation-duration: 30s;
+    animation-delay: 5s;
+    font-size: 3.5rem;
+}
+
+.cloud-3 {
+    top: 50%;
+    left: -8%;
+    animation-duration: 28s;
+    animation-delay: 2s;
+    font-size: 3rem;
+}
+
+.cloud-4 {
+    top: 70%;
+    left: -12%;
+    animation-duration: 32s;
+    animation-delay: 8s;
+    font-size: 3.8rem;
+}
+
+.cloud-5 {
+    top: 20%;
+    left: -20%;
+    animation-duration: 35s;
+    animation-delay: 12s;
+    font-size: 2.8rem;
+    opacity: 0.5;
 }
 
 .hero-content {
@@ -126,29 +212,50 @@ body {
     gap: 2rem;
     position: relative;
     z-index: 2;
+    flex-wrap: wrap;
+    max-width: 500px;
 }
 
 .floating-card {
     width: 120px;
     height: 120px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
     animation: float 4s ease-in-out infinite;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 .floating-card:nth-child(2) {
     animation-delay: 0.5s;
+    transform: translateY(20px);
 }
 
 .floating-card:nth-child(3) {
     animation-delay: 1s;
+    transform: translateY(-20px);
+}
+
+.floating-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.floating-card:nth-child(5) {
+    animation-delay: 2s;
+    transform: translateY(15px);
+}
+
+.floating-card.travel-accent {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+    background: rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.4);
 }
 
 /* CTA Button */
@@ -605,6 +712,15 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes driftCloud {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(100vw + 200px));
     }
 }
 
